@@ -16,7 +16,6 @@ public final class Square extends Shape {
     public void draw() {
         super.draw();
         System.out.println("Length of the side: " + getSide());
-        System.out.println("Area: " + getArea());
     }
 
     @Override

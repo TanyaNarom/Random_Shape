@@ -30,7 +30,7 @@ public final class Triangle extends Shape {
     }
 
     public boolean isRightTriangle() {
-
+        //Such a comparison is necessary, since we are dealing with a floating point numbers.
         return Math.abs((Math.pow(getSideA(), 2) + Math.pow(getSideB(), 2)) - Math.pow(getSideC(), 2)) < Shape.PRECISION_DELTA;
     }
 
@@ -38,7 +38,7 @@ public final class Triangle extends Shape {
         if (isRightTriangle()) {
             return getSideC();
         } else {
-            throw new IllegalStateException("To have a hypotenuse triangle must be the right");
+            throw new IllegalStateException("To have a hypotenuse triangle must be the right"); //https://en.wikipedia.org/wiki/Hypotenuse
         }
     }
 
@@ -50,10 +50,13 @@ public final class Triangle extends Shape {
         } else {
             System.out.println("This triangle have't hypotenuse, sorry.");
         }
-        System.out.println("Area: " + getArea());
+        System.out.println("Side A: " + getSideA());
+        System.out.println("Side B: " + getSideB());
+        System.out.println("Side C: " + getSideC());
     }
 
     private double heron(double a, double b, double c) {
+        //https://en.wikipedia.org/wiki/Heron%27s_formula
         double hapfP = (a + b + c) / 2;
         return Math.sqrt(hapfP * (hapfP - a) * (hapfP - b) * (hapfP - c));
     }
@@ -63,6 +66,7 @@ public final class Triangle extends Shape {
         if (isRightTriangle()) {
             return (getSideA() * getSideB()) / 2;
         } else {
+            //Using Heron's formula
             return heron(getSideA(), getSideB(), getSideC());
         }
     }

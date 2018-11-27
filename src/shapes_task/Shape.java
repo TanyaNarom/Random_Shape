@@ -12,6 +12,7 @@ public abstract class Shape {
     public void draw() {
         System.out.println("Shape: " + this.getClass().getSimpleName());
         System.out.println("Color: " + getColor());
+        System.out.println("Area: " + getArea());
     }
 
     public abstract double getArea();

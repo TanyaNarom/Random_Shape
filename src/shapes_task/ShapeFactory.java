@@ -9,7 +9,8 @@ public class ShapeFactory {
 
     private static final Random RND = new Random();
 
-
+    //Just util static class.
+    //Class Shape should not know anything about this according to the principles of inversion of control
     private ShapeFactory() {
     }
 
@@ -35,6 +36,7 @@ public class ShapeFactory {
                 s = new Square(getRandomLength(), getRandomColor());
                 break;
             case 2:
+                //TODO: Implement more methods from https://en.wikipedia.org/wiki/Solution_of_triangles
                 double a = getRandomLength();
                 double b = getRandomLength((int) Math.floor(a));
                 if (ONLY_RIGHT_TRIANGLES) {
@@ -43,6 +45,7 @@ public class ShapeFactory {
                 } else {
                     while (true) {
                         try {
+                            //Using exception for flow control is bad, i now. But it gives an interesting random distribution.
                             s = new Triangle(a, b, getRandomLength((int) (Math.floor(a + b) + a)), getRandomColor());
                             break;
                         } catch (IllegalArgumentException e) {

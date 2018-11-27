@@ -17,7 +17,6 @@ public final class Circle extends Shape {
     public void draw() {
         super.draw();
         System.out.println("Radius: " + getRadius());
-        System.out.println("Area: " + getArea());
     }
 
     @Override
